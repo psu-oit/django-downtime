@@ -9,8 +9,10 @@ To install django-downtime::
 
 add to installed apps::
 
-	downtime
-
+    INSTALLED_APPS += (
+	'downtime',
+    )
+    
 Add downtime middleware to ``the top`` your list of installed middlewares::
 
     'downtime.middleware.DowntimeMiddleware',
@@ -26,7 +28,7 @@ Exempted Paths::
         '/other_location_not_down',
     )
 
-Url Redirect
+Url Redirect::
 
     DOWNTIME_URL_REDIRECT = "http://errors.mypage.com"
 
