@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
-version = 'dev'
+version = '0.1'
 
 setup(name='django-downtime',
       version=version,
-      description="Give your site a down page, or redirect to an offline error page.",
+      description="Give your site a down page, or redirect to another error page.",
       long_description=open("README.md", "r").read(),
       classifiers=[
                    "Development Status :: 5 - Production/Stable",
