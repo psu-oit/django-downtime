@@ -32,3 +32,9 @@ Exempted Paths::
 Url Redirect
 
     DOWNTIME_URL_REDIRECT = "http://errors.mypage.com"
+
+Templates
+---------
+
+If no URL Redirect is specified a ``lame`` default template is rendered, this can be overridden
+by specificing a ``downtime/downtime.html`` template.
