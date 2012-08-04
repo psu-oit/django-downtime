@@ -12,6 +12,10 @@ Overview
 
 Small, simple, app to show a down page while you make upgrades.
 
+Purpose
+=======
+
+
 
 
 Contents:

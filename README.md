@@ -1,7 +1,9 @@
-django-downtime
-===============
+Small, simple, app to show a down page while you make upgrades.
 
-Small, simple, app to show a down page while you make upgrades.  
+Official Docs
+-------------
+
+http://django-downtime.readthedocs.org
 
 Install
 -------
