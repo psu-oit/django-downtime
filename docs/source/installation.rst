@@ -12,7 +12,7 @@ add to installed apps::
     INSTALLED_APPS += (
 	'downtime',
     )
-    
+
 Add downtime middleware to ``the top`` your list of installed middlewares::
 
     'downtime.middleware.DowntimeMiddleware',

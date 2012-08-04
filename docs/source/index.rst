@@ -3,17 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Django Downtime's documentation!
-===========================================
+Welcome to Django Downtime!
+===========================
 
 
 Overview
-========
+--------
 
 Small, simple, app to show a down page while you make upgrades.
 
 Purpose
-=======
+-------
 
 This app simply runs middleware that checks to see if the site is down for maintenance.
 If it is, (with a period of downtime added to the apps models) either a redirect occurs or a
@@ -22,7 +22,7 @@ as it still requires that the django site remain functional to work.  In other c
 beneficial to point your domain at a different server instead.
 
 Roadmap
-=======
+-------
 
 * Add ability to have downtime for different sections of the site only.
 
@@ -34,13 +34,4 @@ Contents:
 
    installation
    usage
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
