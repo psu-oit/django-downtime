@@ -5,7 +5,7 @@ from django.conf import settings
 
 class DowntimeMiddleware(object):
     def process_request(self, request):
-        exempt_paths = getattr(settings, 'DOWNTIME_EXEMPT_PATHS', ('/admin'))
+        exempt_paths = getattr(settings, 'DOWNTIME_EXEMPT_PATHS', ('/admin',))
         for path in exempt_paths:
             if request.path.startswith(path):
                 return None
