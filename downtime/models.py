@@ -4,7 +4,7 @@ from downtime.managers import PeriodManager
 class Period(models.Model):
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)
-    enabled = models.BooleanField()
+    enabled = models.BooleanField(default=False)
 
     objects = PeriodManager()
 
