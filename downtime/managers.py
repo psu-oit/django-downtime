@@ -16,11 +16,11 @@ class PeriodQuerySet(QuerySet):
             return self.filter(start_time__lte=datetime.now(), end_time__gte=datetime.now())
 
 class PeriodManager(Manager):
-    def get_query_set(self):
+    def get_queryset(self):
         return PeriodQuerySet(self.model, using=self._db)
 
     def active(self):
-        return self.get_query_set().active()
+        return self.get_queryset().active()
 
     def is_down(self):
-        return self.get_query_set().active().is_down()
+        return self.get_queryset().active().is_down()
