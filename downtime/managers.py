@@ -1,8 +1,10 @@
+import datetime
+
 from django.db.models import Manager
 from django.db.models.query import QuerySet
-from datetime import datetime
 from django.conf import settings
 from django.utils.timezone import utc
+
 
 class PeriodQuerySet(QuerySet):
 
@@ -11,9 +13,10 @@ class PeriodQuerySet(QuerySet):
 
     def is_down(self):
         if getattr(settings, 'USE_TZ', False):
-            return self.filter(start_time__lte=datetime.utcnow().replace(tzinfo=utc), end_time__gte=datetime.utcnow().replace(tzinfo=utc))
+            return self.filter(start_time__lte=datetime.datetime.utcnow().replace(tzinfo=utc), end_time__gte=datetime.datetime.utcnow().replace(tzinfo=utc))
         else:
-            return self.filter(start_time__lte=datetime.now(), end_time__gte=datetime.now())
+            return self.filter(start_time__lte=datetime.datetime.now(), end_time__gte=datetime.datetime.now())
+
 
 class PeriodManager(Manager):
     def get_queryset(self):

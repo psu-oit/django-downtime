@@ -1,7 +1,8 @@
-from datetime import datetime
-from downtime.models import Period
 from django.shortcuts import render, redirect
 from django.conf import settings
+
+from downtime.models import Period
+
 
 class DowntimeMiddleware(object):
     def process_request(self, request):
@@ -10,9 +11,9 @@ class DowntimeMiddleware(object):
             if request.path.startswith(path):
                 return None
 
-        now = datetime.now()
         objects = Period.objects.is_down()
-        if objects.count() > 0:
+
+        if objects.count():
             # we are down.
             url_redirect = getattr(settings, 'DOWNTIME_URL_REDIRECT', None)
             if url_redirect:
