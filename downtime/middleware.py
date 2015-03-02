@@ -19,5 +19,5 @@ class DowntimeMiddleware(object):
             if url_redirect:
                 return redirect(url_redirect)
             else:
-                return render(request, "downtime/downtime.html")
+                return render(request, "downtime/downtime.html", status=503)
 
