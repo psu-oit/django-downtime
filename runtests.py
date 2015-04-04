@@ -16,7 +16,6 @@ if django.VERSION[1] < 4:
                                'ENGINE': 'django.db.backends.sqlite3',
                                }
                        },
-                       ROOT_URLCONF='mailqueue.urls',
                        INSTALLED_APPS=('django.contrib.auth',
                                        'django.contrib.contenttypes',
                                        'django.contrib.sessions',
@@ -29,7 +28,6 @@ else:
                                'ENGINE': 'django.db.backends.sqlite3',
                                }
                        },
-                       ROOT_URLCONF='mailqueue.urls',
                        INSTALLED_APPS=('django.contrib.auth',
                                        'django.contrib.contenttypes',
                                        'django.contrib.sessions',
@@ -46,6 +44,6 @@ except AttributeError:
 
 from django.test.simple import DjangoTestSuiteRunner
 test_runner = DjangoTestSuiteRunner(verbosity=1)
-failures = test_runner.run_tests(['mailqueue', ])
+failures = test_runner.run_tests(['downtime', ])
 if failures:
     sys.exit(failures)
