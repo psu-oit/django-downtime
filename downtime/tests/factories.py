@@ -1,5 +1,6 @@
-import factory
 import datetime
+
+import factory
 
 from downtime.models import Period
 

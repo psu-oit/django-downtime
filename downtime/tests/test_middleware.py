@@ -1,4 +1,5 @@
 from mock import Mock
+
 from django.test import TestCase
 
 
