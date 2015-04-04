@@ -1,8 +1,11 @@
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+
 
 from downtime.managers import PeriodManager
 
 
+@python_2_unicode_compatible
 class Period(models.Model):
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)
@@ -10,5 +13,5 @@ class Period(models.Model):
 
     objects = PeriodManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return "Scheduled downtime"
