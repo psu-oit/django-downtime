@@ -12,9 +12,6 @@ class DowntimeModelTest(TestCase):
     def setUp(self):
         self.period = PeriodFactory.create()
 
-    def test_unicode(self):
-        self.assertEqual(self.period.__unicode__(), 'Scheduled downtime')
-
     def test_active(self):
         self.assertTrue(Period.objects.active().count())
 
