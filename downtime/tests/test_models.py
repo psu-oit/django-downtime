@@ -30,6 +30,7 @@ class DowntimeModelTest(TestCase):
     def test_is_not_down(self):
         self.period.start_time = datetime.datetime.now() - datetime.timedelta(days=4)
         self.period.end_time = datetime.datetime.now() - datetime.timedelta(days=1)
+        self.period.save()
 
         self.assertFalse(Period.objects.is_down().count())
 

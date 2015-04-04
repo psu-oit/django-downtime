@@ -10,7 +10,7 @@ env:
 
 # command to install dependencies
 install:
-  - pip install $DJANGO_VERSION south factory_boy
+  - pip install $DJANGO_VERSION south factory_boy mock
 
 # command to run tests
 
