@@ -21,11 +21,6 @@ template is loaded with a down time message.  This app isn't intended to be a fu
 as it still requires that the django site remain functional to work.  In other cases it may be more
 beneficial to point your domain at a different server instead.
 
-Roadmap
--------
-
-* Add ability to have downtime for different sections of the site only.
-
 
 Contents:
 
