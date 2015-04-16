@@ -1,5 +1,4 @@
 include README.md
-include LICENSE
 recursive-include docs/ *
 recursive-include downtime/templates/ *
 
