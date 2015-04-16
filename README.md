@@ -1,3 +1,5 @@
+## Django Downtime
+
 Small, simple, app to show a down page while you make upgrades.
 
 Official Docs
@@ -7,6 +9,8 @@ http://django-downtime.readthedocs.org
 
 Install
 -------
+
+Django supports versions 1.4 to 1.8 on Python 2.7 and 3.4.
 
 To install django-downtime::
 
