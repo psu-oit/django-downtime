@@ -5,6 +5,7 @@ import site
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 path = lambda *a: os.path.join(ROOT, *a)
 
 prev_sys_path = list(sys.path)
@@ -131,7 +132,7 @@ MIDDLEWARE_CLASSES = (
 
 DOWNTIME_EXEMPT_PATHS = ('/admin',)
 
-DOWNTIME_URL_REDIRECT = "http://google.com"
+#DOWNTIME_URL_REDIRECT = "http://google.com"
 
 ROOT_URLCONF = 'demo.urls'
 
@@ -139,6 +140,7 @@ ROOT_URLCONF = 'demo.urls'
 WSGI_APPLICATION = 'demo.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(SITE_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
