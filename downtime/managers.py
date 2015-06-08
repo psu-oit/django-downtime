@@ -34,6 +34,9 @@ class PeriodManager(Manager):
 
     def active(self):
         return self.get_queryset().active()
-
+    
+    def is_deployment(self):
+        return self.get_queryset().active().is_deployment()
+        
     def is_down(self):
         return self.get_queryset().active().is_down() or self.get_queryset().active().is_deployment()
