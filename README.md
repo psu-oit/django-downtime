@@ -44,3 +44,9 @@ Templates
 
 If no URL Redirect is specified a ``lame`` default template is rendered, this can be overridden
 by specificing a ``downtime/downtime.html`` template.
+
+Management Commands
+-------------------
+
+There are two managment commands, one to take a project down and one to set it back up. 
+
