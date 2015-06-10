@@ -29,4 +29,7 @@ Contents:
 
    installation
    usage
+   contributors
+   changelog
+   license
 

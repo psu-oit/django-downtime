@@ -1,4 +1,7 @@
 include README.md
+include CONTRIBUTORS.rst
+include LICENSE
+include CHANGELOG.rst
 recursive-include docs *
 recursive-include downtime/templates *
 
