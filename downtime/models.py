@@ -14,4 +14,4 @@ class Period(models.Model):
     objects = PeriodManager()
 
     def __str__(self):
-        return "Scheduled downtime"
+        return "Scheduled Downtime: %s to %s" % (self.start_time, self.end_time)
