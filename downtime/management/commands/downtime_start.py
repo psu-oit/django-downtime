@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
+from django.utils.timezone import utc
+
 import datetime
 
 from downtime.models import Period
- 
+
 class Command(BaseCommand):
     help = 'Start downtime due to maintenance/deployment/whatever.'
 
