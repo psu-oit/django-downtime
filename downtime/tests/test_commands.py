@@ -15,14 +15,14 @@ class DowntimeCommandsTest(TestCase):
             'Period should deployed initially.')
 
     def test_downtime_end(self):
-        call_command('downtime_end', stdout=False)
+        call_command('downtime_end')
         deployed_periods = Period.objects.is_deployment()
         self.assertFalse(deployed_periods, \
             'After running downtime_end, the period should not be deployed.\n \
             Returned: %s ' % deployed_periods)
 
     def test_downtime_start(self):
-        call_command('downtime_start', stdout=False)
+        call_command('downtime_start')
         deployed_periods = Period.objects.is_deployment()
         self.assertTrue(deployed_periods,\
             'After running downtime_start, the period should be deployed.\n \
