@@ -2,6 +2,17 @@
 Changelog
 =========
 
+1.0.3
+-----
+
+- Command bug fixes
+- Added date/time to unicode for models.
+
+1.0.2
+-----
+
+- Add downtime up/down commands
+
 1.0.1
 -----
 - Templates were not bundled correctly in 1.0.0

@@ -4,4 +4,3 @@ include LICENSE
 include CHANGELOG.rst
 recursive-include docs *
 recursive-include downtime/templates *
-

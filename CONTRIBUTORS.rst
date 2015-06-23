@@ -13,3 +13,4 @@ Contributors
 * bartoszgrabski
 * Harley Hauer (hhauer)
 * Thijs Triemstra (thijstriemstra)
+* Kevin Glover (kevinglover)
