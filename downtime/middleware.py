@@ -10,8 +10,6 @@ class DowntimeMiddleware(object):
                                     'DOWNTIME_EXEMPT_EXACT_URLS', None)
         if exempt_exact_urls:
             for url in exempt_exact_urls:
-                print request.path
-                print url
                 if request.path == url:
                     return None
 
