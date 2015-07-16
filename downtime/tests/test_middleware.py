@@ -15,6 +15,17 @@ class DowntimeMiddlewareTest(TestCase):
         self.request.session = {}
         self.period = PeriodFactory.create()
 
+    def test_exempt_exact_urls(self):
+        self.request.path = '/test/page/id'
+        self.assertTrue(self.dm.process_request(self.request))
+
+        with self.settings(DOWNTIME_EXEMPT_EXACT_URLS=('/test/page/id', )):
+            self.assertIsNone(self.dm.process_request(self.request))
+
+            self.request.path = '/test/page/id/child'
+            self.assertTrue(self.dm.process_request(self.request),
+                            'Children pages are not exempted to exact urls')
+
     def test_exempt_paths(self):
         self.request.path = '/admin'
         self.assertIsNone(self.dm.process_request(self.request))

@@ -14,11 +14,11 @@ Django supports versions 1.4 to 1.8 on Python 2.7 and 3.4.
 
 To install django-downtime::
 
-	pip install django-downtime
+  pip install django-downtime
 
 add to installed apps::
 
-	downtime
+  downtime
 
 Add downtime middleware to ``the top`` your list of installed middlewares::
 
@@ -27,6 +27,13 @@ Add downtime middleware to ``the top`` your list of installed middlewares::
 
 Settings
 --------
+
+Exempted URLs::
+
+    DOWNTIME_EXEMPT_EXACT_URLS = (
+        '/', # exempts homepage
+        '/other_location/not_down/page',
+    )
 
 Exempted Paths::
 
@@ -43,7 +50,7 @@ Templates
 ---------
 
 If no URL Redirect is specified a ``lame`` default template is rendered, this can be overridden
-by specificing a ``downtime/downtime.html`` template.
+by specifying a ``downtime/downtime.html`` template.
 
 Management Commands
 -------------------
@@ -53,10 +60,10 @@ up `python manage.py downtime_end`.
 
 What happens internally when calling `python manage.py downtime_start`?
 
-This sets a start date time and mark is as enabled. We call this "deployment mode", ususally called before
+This sets a start date time and mark is as enabled. We call this "deployment mode", usually called before
 running a deployment script.
 
 What happens internally when calling `python manage.py downtime_end`?
 
 This sets a end date time to all records that has a start date time and no end date time set and are
-marked as enabled. We call this "closing deployment mode", ususally called after running a deployment script.
+marked as enabled. We call this "closing deployment mode", usually called after running a deployment script.
