@@ -14,11 +14,11 @@ Django supports versions 1.4 to 1.8 on Python 2.7 and 3.4.
 
 To install django-downtime::
 
-  pip install django-downtime
+    pip install django-downtime
 
 add to installed apps::
 
-  downtime
+    downtime
 
 Add downtime middleware to ``the top`` your list of installed middlewares::
 
