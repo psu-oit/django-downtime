@@ -6,6 +6,13 @@ from downtime.models import Period
 
 class DowntimeMiddleware(object):
     def process_request(self, request):
+        exempt_exact_urls = getattr(settings,
+                                    'DOWNTIME_EXEMPT_EXACT_URLS', None)
+        if exempt_exact_urls:
+            for url in exempt_exact_urls:
+                if request.path == url:
+                    return None
+
         exempt_paths = getattr(settings, 'DOWNTIME_EXEMPT_PATHS', ('/admin',))
         for path in exempt_paths:
             if request.path.startswith(path):
@@ -20,4 +27,3 @@ class DowntimeMiddleware(object):
                 return redirect(url_redirect)
             else:
                 return render(request, "downtime/downtime.html", status=503)
-

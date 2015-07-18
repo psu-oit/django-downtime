@@ -7,12 +7,12 @@ Django Downtime supports Django 1.4 - 1.8 and Python 2.7 and 3.4.
 
 To install django-downtime::
 
-	pip install django-downtime
+    pip install django-downtime
 
 add to installed apps::
 
     INSTALLED_APPS += (
-	'downtime',
+        'downtime',
     )
 
 Add downtime middleware to ``the top`` your list of installed middlewares::
@@ -22,6 +22,13 @@ Add downtime middleware to ``the top`` your list of installed middlewares::
 
 Settings
 --------
+
+Exempted URLs::
+
+    DOWNTIME_EXEMPT_EXACT_URLS = (
+        '/', # exempts homepage
+        '/other_location/not_down/page',
+    )
 
 Exempted Paths::
 
@@ -38,4 +45,4 @@ Templates
 ---------
 
 If no URL Redirect is specified a ``lame`` default template is rendered, this can be overridden
-by specificing a ``downtime/downtime.html`` template.
+by specifying a ``downtime/downtime.html`` template.
