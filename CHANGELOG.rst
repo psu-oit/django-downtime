@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.0.4
+-----
+
+- Exempt specific URLs #33
+
 1.0.3
 -----
 
