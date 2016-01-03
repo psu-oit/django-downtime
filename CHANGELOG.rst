@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.1.0
+-----
+
+- Django 1.9 support
+- Drop support for below 1.8
+
 1.0.4
 -----
 

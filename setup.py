@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0.4'
+version = '1.1.0'
 
 setup(name='django-downtime',
       version=version,
@@ -13,11 +13,8 @@ setup(name='django-downtime',
                    "Natural Language :: English",
                    "Operating System :: OS Independent",
                    "Framework :: Django",
-                   "Framework :: Django :: 1.4",
-                   "Framework :: Django :: 1.5",
-                   "Framework :: Django :: 1.6",
-                   "Framework :: Django :: 1.7",
                    "Framework :: Django :: 1.8",
+                   "Framework :: Django :: 1.9",
                    "Programming Language :: Python :: 2",
                    "Programming Language :: Python :: 3",
                    "Programming Language :: Python",

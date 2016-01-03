@@ -10,7 +10,7 @@ http://django-downtime.readthedocs.org
 Install
 -------
 
-Django supports versions 1.4 to 1.8 on Python 2.7 and 3.4.
+Django supports versions 1.8 and 1.9 on Python 2 and 3.
 
 To install django-downtime::
 
