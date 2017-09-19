@@ -3,8 +3,13 @@ from django.conf import settings
 
 from downtime.models import Period
 
+try:
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:
+    MiddlewareMixin = object
 
-class DowntimeMiddleware(object):
+
+class DowntimeMiddleware(MiddlewareMixin):
     def process_request(self, request):
         exempt_exact_urls = getattr(settings,
                                     'DOWNTIME_EXEMPT_EXACT_URLS', None)
