@@ -1,4 +1,4 @@
-from django.test import TransactionTestCase
+from django.test import TestCase
 
 from downtime.models import Period
 from downtime.tests.factories import PeriodFactory
@@ -6,7 +6,7 @@ from downtime.tests.factories import PeriodFactory
 from django.core.management import call_command
 
 
-class DowntimeCommandsTest(TransactionTestCase):
+class DowntimeCommandsTest(TestCase):
 
     def setUp(self):
         self.period = PeriodFactory.create()
