@@ -14,3 +14,4 @@ Contributors
 * Harley Hauer (hhauer)
 * Thijs Triemstra (thijstriemstra)
 * Kevin Glover (kevinglover)
+* Peter J. Farrell (peterfarrell)
