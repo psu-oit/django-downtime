@@ -1,13 +1,13 @@
 import datetime
 
 
-from django.test import TestCase
+from django.test import TransactionTestCase
 
 from downtime.tests.factories import PeriodFactory
 from downtime.models import Period
 
 
-class DowntimeModelTest(TestCase):
+class DowntimeModelTest(TransactionTestCase):
 
     def setUp(self):
         self.period = PeriodFactory.create()

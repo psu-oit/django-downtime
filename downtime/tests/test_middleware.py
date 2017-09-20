@@ -7,18 +7,6 @@ from downtime.middleware import DowntimeMiddleware
 from downtime.tests.factories import PeriodFactory
 
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-            ],
-        },
-    },
-]
-
-
 class DowntimeMiddlewareTest(TestCase):
 
     def setUp(self):
@@ -29,10 +17,9 @@ class DowntimeMiddlewareTest(TestCase):
 
     def test_exempt_exact_urls(self):
         self.request.path = '/test/page/id'
-        with self.settings(TEMPLATES=TEMPLATES):
-            self.assertTrue(self.dm.process_request(self.request))
+        self.assertTrue(self.dm.process_request(self.request))
 
-        with self.settings(DOWNTIME_EXEMPT_EXACT_URLS=('/test/page/id', ), TEMPLATES=TEMPLATES):
+        with self.settings(DOWNTIME_EXEMPT_EXACT_URLS=('/test/page/id', )):
             self.assertIsNone(self.dm.process_request(self.request))
 
             self.request.path = '/test/page/id/child'
@@ -46,6 +33,5 @@ class DowntimeMiddlewareTest(TestCase):
     def test_render(self):
         self.request.path = '/'
 
-        with self.settings(TEMPLATES=TEMPLATES):
-            response = self.dm.process_request(self.request)
-            self.assertEqual(response.status_code, 503)
+        response = self.dm.process_request(self.request)
+        self.assertEqual(response.status_code, 503)
