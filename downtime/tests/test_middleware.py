@@ -29,7 +29,8 @@ class DowntimeMiddlewareTest(TestCase):
 
     def test_exempt_exact_urls(self):
         self.request.path = '/test/page/id'
-        self.assertTrue(self.dm.process_request(self.request))
+        with self.settings(TEMPLATES=TEMPLATES):
+            self.assertTrue(self.dm.process_request(self.request))
 
         with self.settings(DOWNTIME_EXEMPT_EXACT_URLS=('/test/page/id', ), TEMPLATES=TEMPLATES):
             self.assertIsNone(self.dm.process_request(self.request))
