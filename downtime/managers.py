@@ -10,22 +10,13 @@ class PeriodQuerySet(QuerySet):
 
     def active(self):
         return self.filter(enabled=True)
-    
+
     def is_deployment(self):
-        if getattr(settings, 'USE_TZ', False):
-            return self.filter(start_time__lte=datetime.datetime.utcnow().replace(tzinfo=utc), 
-                               end_time=None)
-        else:
-            return self.filter(start_time__lte=datetime.datetime.now(), 
-                               end_time=None)
-        
+        return self.filter(start_time__lte=timezone.now(), end_time=None)
+
     def is_down(self):
-        if getattr(settings, 'USE_TZ', False):
-            return self.filter(start_time__lte=datetime.datetime.utcnow().replace(tzinfo=utc), 
-                               end_time__gte=datetime.datetime.utcnow().replace(tzinfo=utc))
-        else:
-            return self.filter(start_time__lte=datetime.datetime.now(), 
-                               end_time__gte=datetime.datetime.now())
+        return self.filter(start_time__lte=timezone.now(),
+                           end_time__gte=timezone.now())
 
 
 class PeriodManager(Manager):

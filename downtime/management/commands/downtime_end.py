@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
-from django.utils.timezone import utc
+from django.utils import timezone
 
 import datetime
 
@@ -11,10 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         objects = Period.objects.is_deployment()
-        if getattr(settings, 'USE_TZ', False):
-            _now = datetime.datetime.utcnow().replace(tzinfo=utc)
-        else:
-            _now = datetime.datetime.now()
+        _now = timezone.now()
         for obj in objects:
             obj.end_time = _now
             obj.save()

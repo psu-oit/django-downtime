@@ -29,7 +29,8 @@ settings.configure(
             },
         },
     ],
-    USE_TZ=True
+    USE_TZ=True,
+    TIME_ZONE="UTC"
 )
 
 

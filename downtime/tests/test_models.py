@@ -5,6 +5,7 @@ from django.test import TestCase
 
 from downtime.tests.factories import PeriodFactory
 from downtime.models import Period
+from django.utils import timezone
 
 
 class DowntimeModelTest(TestCase):
@@ -25,8 +26,8 @@ class DowntimeModelTest(TestCase):
         self.assertTrue(Period.objects.is_down().count())
 
     def test_is_not_down(self):
-        self.period.start_time = datetime.datetime.now() - datetime.timedelta(days=4)
-        self.period.end_time = datetime.datetime.now() - datetime.timedelta(days=1)
+        self.period.start_time = timezone.now() - datetime.timedelta(days=4)
+        self.period.end_time = timezone.now() - datetime.timedelta(days=1)
         self.period.save()
 
         self.assertFalse(Period.objects.is_down().count())
