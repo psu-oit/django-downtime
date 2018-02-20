@@ -3,7 +3,7 @@ import datetime
 from django.db.models import Manager
 from django.db.models.query import QuerySet
 from django.conf import settings
-from django.utils.timezone import utc
+from django.utils import timezone
 
 
 class PeriodQuerySet(QuerySet):
