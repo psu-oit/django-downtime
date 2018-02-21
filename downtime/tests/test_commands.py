@@ -5,6 +5,7 @@ from downtime.tests.factories import PeriodFactory
 
 from django.core.management import call_command
 
+
 class DowntimeCommandsTest(TestCase):
 
     def setUp(self):

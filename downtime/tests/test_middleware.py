@@ -32,5 +32,6 @@ class DowntimeMiddlewareTest(TestCase):
 
     def test_render(self):
         self.request.path = '/'
+
         response = self.dm.process_request(self.request)
         self.assertEqual(response.status_code, 503)
