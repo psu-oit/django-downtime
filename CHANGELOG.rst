@@ -1,6 +1,9 @@
 =========
 Changelog
 =========
+1.1.2
+-----
+- Timezone updates
 
 1.1.1
 -----
