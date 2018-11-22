@@ -1,3 +1,51 @@
+## What do this branch?
+
+1. now possible use custom mixin
+simple declare list of you mixins in settings:
+```python
+DOWNTIME_MIXIN = ['utils.utility.downtime_mixin', ]  # custom list of you mixins
+DOWNTIME_NODATABASE_MODE = True  # Dont use DataBase for check maintance mode
+```
+where in you project present app named 'utils.utility' and function `downtime_mixin`
+
+from real project:
+```python
+def downtime_mixin(self_object, request):
+    result = request.user.is_superuser
+    if not result:
+        api_key = request.GET.get('api_key')
+        setting_api_key = getattr(settings, 'DOWNTIME_ADTIONAL_API_KEY', None)
+        result = api_key == setting_api_key
+    return not result
+```
+I use Django Rest Framework, and stay possible to use API for maintenance works, so i just declare in settings.py DOWNTIME_ADTIONAL_API_KEY variable and use this for allow requests. Too i use check request super user. This can be possible only if append `downtime.middleware.DowntimeMiddleware` to end of the list MIDDLEWARE.
+2. Also introduce new variable DOWNTIME_NODATABASE_MODE , in this case no database need, this is very important because do query to database every time - bad idea.
+
+Summary my settings looks like:
+```python
+DOWNTIME = True
+.
+.
+.
+if DOWNTIME:
+    DOWNTIME_EXEMPT_PATHS = (
+        '/admin/',
+        '/ru/accounts/login/',
+        '/en/accounts/login/',
+    )
+    DOWNTIME_MIXIN = ['utils.utility.downtime_mixin', ]  # custom list of you mixins
+    DOWNTIME_NODATABASE_MODE = True  # Dont use DataBase for check maintance mode
+    INSTALLED_APPS = (*INSTALLED_APPS, 'downtime',)
+    MIDDLEWARE += ['downtime.middleware.DowntimeMiddleware', ]
+    # MIDDLEWARE.insert(0, 'downtime.middleware.DowntimeMiddleware', )
+
+    # private params
+    DOWNTIME_ADDITIONAL_API_KEY = 'super-puper-secret-key'
+```
+
+
+--------------------------------- END
+
 ## Django Downtime
 
 > Looking For Authors!  This project is currently looking for a user to take it over.  If that sounds like you, send a note to derek at stegelman dot com or open up an issue in this repository.
